@@ -29,6 +29,7 @@ class AdminCommentController extends AbstractController
     {
         $comment = new Comment();
         $comment->setCreatedAt(new DateTimeImmutable());
+        $comment->setUser($this->getUser());
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
