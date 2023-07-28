@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&display=swap");
+
+h1 {
+  font-family: "Lekton", sans-serif;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+body {
+  background-color: rgb(198, 195, 202);
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+h1,
+h2 {
+  margin-bottom: 2em;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-right: 3em;
+}
+
+.navbar-nav a {
+  color: var(--bs-navbar-active-color);
+  font-size: 1.3rem;
+}
+
+.navbar-nav a:hover {
+  font-weight: bold;
+}
+
+.navbar {
+  height: 9rem;
+  padding: 2rem;
+}
+
+.navbar > ul {
+  justify-content: flex-end;
+}
+
+.navbar-nav > li > a {
+  margin: 1.5rem;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #b2aee4;
+}
+
+.css-button-3d--grey {
+  min-width: 130px;
+  height: 34px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: #6c757d;
+  box-shadow: 0 5px #495057;
+}
+.css-button-3d--grey:hover {
+  box-shadow: 0 3px #495057;
+  top: 1px;
+}
+.css-button-3d--grey:active {
+  box-shadow: 0 0 #495057;
+  top: 5px;
+}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search
+{% endblock %}
+
+{% block body %}
+	<h2>found articles :</h2>
+
+	{% for article in articles %}
+		<div class="mb-5">
+
+			<h5>{{ article.title }}</h5>
+
+			<div>
+				<a href="{{ path('app_article_show', {'id': article.id}) }}">read</a>
+			</div>
+		</div>
+
+	{% else %}
+
+		<div>no records found</div>
+
+	{% endfor %}
+
+
+{% endblock %}

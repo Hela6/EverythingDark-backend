@@ -31,11 +31,21 @@ class ContactController extends AbstractController
                 ->text($content);
 
             $mailer->send($email);
+
+            return $this->redirectToRoute('app_success');
         }
 
         return $this->renderForm('contact/index.html.twig', [
             'controller_name' => 'ContactController',
             'form' => $form
+        ]);
+    }
+
+    #[Route('/contact/success', name: 'app_success')]
+    public function success(): Response
+    {
+        return $this->render('success/index.html.twig', [
+            'controller_name' => 'SuccessController',
         ]);
     }
 }
