@@ -12,9 +12,13 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('content')
-            ->add('article')
-            ->add('user');
+            ->add('content', null, [
+                'attr' => ['class' => 'd-flex flex-column mb-3'],
+            ])
+            // ->add('createdAt')
+            // ->add('article')
+            // ->add('user')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

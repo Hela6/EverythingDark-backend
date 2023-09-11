@@ -1,35 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Everything Dark - Articles
+{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
+	<h1 style="margin: 0 auto;">Articles</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.content }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+
+	{% for article in articles %}
+
+		<div style="margin:30px auto; height=300px;">
+
+			<div class="article">
+
+				<img src="{{ asset('/img/' ~ article.image) }}" class="m-3" style="width:200px; height:auto;" alt="Image">
+
+				<div class="p-3 d-flex row align-items-center">
+					<h6>
+						<em style="color:lightgrey;text-decoration:underline;">
+							{{ article.category }}</em>
+					</h6>
+
+					<h3>
+						<a href="{{ path('app_article_show', {'id': article.id}) }}" style="text-decoration:none; color:white;">
+							{{ article.title }}
+						</a>
+					</h3>
+
+					<h5>{{ article.intro }}</h5>
+					<a href="{{ path('app_article_show', {'id': article.id}) }}">
+						<button class="css-button-3d--grey m-3">read</button>
+					</a>
+				</div>
+			</div>
+		</div>
+
+	{% else %}
+
+
+		<h4>no records found</h4>
+
+	{% endfor %}
+
 
 {% endblock %}

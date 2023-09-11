@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Comment;
-use App\Form\Comment1Type;
+use App\Form\CommentType;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +23,7 @@ class CommentController extends AbstractController
         $comment->setCreatedAt(new DateTimeImmutable());
         $comment->setUser($this->getUser());
         $comment->setArticle($article);
-        $form = $this->createForm(Comment1Type::class, $comment);
+        $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

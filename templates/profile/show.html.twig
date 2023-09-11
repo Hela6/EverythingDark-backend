@@ -1,31 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Everything Dark - profile
+{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Username</th>
-                <td>{{ user.username }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>IsVerified</th>
-                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <a href="{{ path('app_profile_edit') }}">edit</a>
+	<div class="d-flex flex-column align-items-center">
+
+		<h1>Your profile :</h1>
+		<div>
+
+			<h4 class="m-5">Username :
+				{{ user.username }}
+			</h4>
+
+		</div>
+		<div>
+			<h4 class="mb-5">Email :
+
+				{{ user.email }}</h4>
+
+		</div>
+		<a href="{{ path('app_profile_edit') }}">
+			<button class="css-button-3d--grey m-3" type="submit">edit</button>
+		</a>
+
+		{% for flashType, messages in app.session.flashBag.all() %}
+			{% for message in messages %}
+				<div class="alert alert-{{ flashType }}" style="text-decoration: none; color: white; margin-top: 1rem;">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endfor %}
+
+
+	</div>
+
 
 {% endblock %}

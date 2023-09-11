@@ -1,31 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}The Blog - Categories
+{% block title %}Everything Dark - Categories
 {% endblock %}
 
 {% block body %}
-	<h1>Categories</h1>
+	<div class="d-flex flex-column justify-content-center align-items-center">
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for category in categories %}
-				<tr>
-					<td>{{ category.name }}</td>
-					<td>
-						<a href="{{ path('app_category_show', {'id': category.id}) }}">explore this category</a>
-					</td>
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="3">no records found</td>
-				</tr>
+
+		<h1 class="d-flex text-center mb-5">Categories</h1>
+
+		{% for category in categories %}
+			<div>
+				<a href="{{ path('app_category_show', {'id': category.id}) }}" style="text-decoration: none; color: lightgrey; margin-bottom: 1rem;">
+					<h2 class="mb-3">{{ category.name }}</h2>
+				</a>
+			</div>
+		{% endfor %}
+
+		{% for flashType, messages in app.session.flashBag.all() %}
+			{% for message in messages %}
+				<div class="alert alert-{{ flashType }}" style="text-decoration: none; color: white; margin-top: 1rem;">
+
+					{{ message }}
+				</div>
 			{% endfor %}
-		</tbody>
-	</table>
+		{% endfor %}
+
+	</div>
+
 {% endblock %}

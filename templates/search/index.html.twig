@@ -1,26 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Search
+{% block title %}Everything Dark - search
 {% endblock %}
 
 {% block body %}
-	<h2>found articles :</h2>
+
+
+	<h1 style="margin: 0 auto;">found articles :</h1>
+
 
 	{% for article in articles %}
-		<div class="mb-5">
 
-			<h5>{{ article.title }}</h5>
 
-			<div>
-				<a href="{{ path('app_article_show', {'id': article.id}) }}">read</a>
+		<div class="article" style="margin:30px auto; height=300px;">
+
+			<img src="{{ asset('/img/' ~ article.image) }}" class="m-3" style="width:200px; height:auto;" alt="Image">
+
+			<div class="p-3 d-flex row align-items-center">
+				<h6>
+					<em style="color:lightgrey;text-decoration:underline;">
+						{{ article.category }}</em>
+				</h6>
+				<h3>
+					<a href="{{ path('app_article_show', {'id': article.id}) }}" style="text-decoration:none; color:white;">
+						{{ article.title }}
+					</a>
+				</h3>
+
+				<h5>{{ article.intro }}</h5>
+				<a href="{{ path('app_article_show', {'id': article.id}) }}">
+					<button class="css-button-3d--grey m-3">read</button>
+				</a>
 			</div>
 		</div>
 
+
 	{% else %}
 
-		<div>no records found</div>
+
+		<h4>no records found</h4>
 
 	{% endfor %}
-
-
-{% endblock %}
+</div>{% endblock %}

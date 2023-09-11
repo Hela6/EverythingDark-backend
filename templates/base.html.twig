@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html data-bs-theme="dark">
+
 	<head>
 
 		<title>
@@ -23,13 +24,17 @@
 		{% endblock %}
 	</head>
 
-	<body>
-		{{ include('navbar.html.twig') }}
+	<body id="bootstrap-overrides"></body>
 
-		<main class="container pt-5"> {% block body %}{% endblock %}
-			</main>
+	{{ include('navbar.html.twig') }}
 
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-		</body>
+	<main class="d-flex flex-column mt-5 p-5"> {% block body %}{% endblock %}
+		</main>
+
+		{{ include('footer.html.twig') }}
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/trix/dist/trix.js"></script>
 
 	</html>
+</body></html>

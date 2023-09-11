@@ -1,31 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Everything Dark - log in
+{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+	<form method="post">
+		{% if error %}
+			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+		<div class="d-flex flex-column align-items-center">
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername">Username</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+			<h1 class="m-3">Please log in</h1>
+			<label for="inputUsername" class="mt-3">Username</label>
+			<input type="text" value="{{ last_username }}" name="username" id="inputUsername" autocomplete="username" required>
+			<label for="inputPassword" class="mt-3">Password</label>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+			<input type="password" name="password" id="inputPassword" autocomplete="current-password" required>
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+			<button class="css-button-3d--grey m-3" type="submit">log in</button>
+
+
+		</form>
+
+		<a href="{{ path('app_forgot_password_request') }}">
+
+			<button class="css-button-3d--grey m-3" type="button">reset password</button>
+		</a>
+		{% for flashType, messages in app.session.flashBag.all() %}
+			{% for message in messages %}
+				<div class="alert alert-{{ flashType }}" style="text-decoration: none; color: white; margin-top: 1rem;">
+
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endfor %}
+
+	</div>
 {% endblock %}

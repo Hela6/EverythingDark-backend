@@ -1,55 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}Everything Dark -
+	{{ category.name }}
+{% endblock %}
 
 {% block body %}
-    <h1>Category</h1>
+	<h1 style="margin: 0 auto;">
+		{{ category.name }}
+	</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ category.name }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_category_index') }}">back to list</a>
+	{% for article in articles %}
 
 
-    <div>
-     <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.content }}</td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    </div>
-    
+		<div class="article" style="margin:30px auto; height=300px;">
 
+			<img src="{{ article.image }}" class="m-4" width="250px" height="auto" alt="Image">
+
+			<div class="p-3 d-flex row align-items-center">
+				<h3>
+					<a href="{{ path('app_article_show', {'id': article.id}) }}" style="text-decoration:none; color:white;">
+						{{ article.title }}
+					</a>
+				</h3>
+
+				<h5>{{ article.intro }}</h5>
+				<a href="{{ path('app_article_show', {'id': article.id}) }}">
+					<button class="css-button-3d--grey m-3">read</button>
+				</a>
+			</div>
+		</div>
+
+
+	{% else %}
+
+
+		<h4>no records found</h4>
+
+	{% endfor %}
 
 {% endblock %}

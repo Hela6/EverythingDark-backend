@@ -1,42 +1,50 @@
-@import url("https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap");
 
 h1 {
-  font-family: "Lekton", sans-serif;
-  font-size: 3em;
   font-weight: bold;
 }
 
+h2:hover,
+h3:hover {
+  color: rgb(255, 255, 255);
+}
+
+h2,
+h3 {
+  color: rgb(187, 185, 185);
+}
+
 body {
-  background-color: rgb(198, 195, 202);
+  margin: 0 auto;
+  font-family: "Yuji Syuku", serif;
+  background-color: #141618;
+}
+
+main {
+  width: 60%;
+  margin: 0 auto;
 }
 
 .selector-for-some-widget {
   box-sizing: content-box;
 }
 
-h1,
-h2 {
-  margin-bottom: 2em;
-}
-
 .navbar-brand {
   font-weight: bold;
   font-size: 1.5em;
-  margin-right: 3em;
+  margin-right: 1em;
 }
 
 .navbar-nav a {
-  color: var(--bs-navbar-active-color);
   font-size: 1.3rem;
 }
 
-.navbar-nav a:hover {
-  font-weight: bold;
-}
-
 .navbar {
-  height: 9rem;
+  height: 5rem;
   padding: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navbar > ul {
@@ -47,31 +55,65 @@ h2 {
   margin: 1.5rem;
 }
 
-.border-bottom {
-  border-bottom: 2px solid #b2aee4;
+input {
+  border-radius: 15px;
+  padding: 6px 15px;
+}
+
+img {
+  box-shadow: 0px 0px 30px 1px rgb(89, 90, 90);
 }
 
 .css-button-3d--grey {
-  min-width: 130px;
-  height: 34px;
-  color: #fff;
-  padding: 5px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 5px;
+  border-radius: 20px;
   border: none;
-  background: #6c757d;
-  box-shadow: 0 5px #495057;
+  padding: 6px 18px;
+  background-color: #909292;
+  color: rgb(29, 31, 34);
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 .css-button-3d--grey:hover {
-  box-shadow: 0 3px #495057;
-  top: 1px;
+  background-color: rgb(208, 210, 211);
 }
-.css-button-3d--grey:active {
-  box-shadow: 0 0 #495057;
-  top: 5px;
+
+.article {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row !important;
+  margin: 30px auto;
+}
+
+footer {
+  color: white;
+  background-color: #141618;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  main {
+    width: 100%;
+  }
+
+  .article {
+    flex-wrap: wrap;
+  }
+
+  .navbar-brand {
+    font-size: 1.2em;
+    margin-right: 0;
+  }
+
+  h1 {
+    font-size: 3em !important;
+  }
 }

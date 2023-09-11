@@ -1,12 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Comment{% endblock %}
+{% block title %}Add a comment
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Comment</h1>
+	<h1>Add  a comment :
+	</h1>
 
-    {{ include('comment/_form.html.twig') }}
+	{{ include('comment/_form.html.twig') }}
 
-    {# <a href="{{ path('app_comment_index') }}">back to list</a> #}
-    <a href="{{ path('app_article_index') }}">back to list</a>
+	{# <div>
+			<a href="{{ path('app_article_index') }}">
+				<button class="css-button-3d--grey m-3" type="submit">back to articles list</button>
+	
+			</a>
+		</div> #}
 {% endblock %}

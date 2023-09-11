@@ -1,11 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}The Blog - Home
+{% block title %}Everything Dark - Home
 {% endblock %}
 
 {% block body %}
+	<div class="d-flex flex-column align-items-center mt-5">
+		<h1 class="text-center" style="color: white; font-size: 5em;">Everything Dark</h1>
 
-	<h1 class="text-center">Welcome to The Blog !</h1>
+		<div class="d-flex flex-column align-items-center p-1">
+			<p class="text-center">music - fashion - graphic arts</p>
+			<img src="{{ asset('img/whitemoon.png') }}" width="40px" height="auto" style="box-shadow: none;" alt="White Moon Image">
+		</div>
+
+		{% for flashType, messages in app.session.flashBag.all() %}
+			{% for message in messages %}
+				<div class="alert alert-{{ flashType }}" style="text-decoration: none; color: white; margin-top: 1rem;">
+
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endfor %}
+	</div>
 
 
 {% endblock %}

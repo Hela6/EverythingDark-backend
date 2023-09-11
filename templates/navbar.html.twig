@@ -1,7 +1,9 @@
-<nav class="navbar b-g-dark navbar-expand-lg bg-body-tertiary>
+<nav class="navbar b-g-dark navbar-expand-lg bg-body-tertiary" style="background-color:#141618 !important; position:sticky;">
 
-	<div class="container-fluid">
-		<a class="navbar-brand">The Blog</a>
+	<div class="container-fluid" style="width:100%; background-color:#141618;">
+
+		<a class="navbar-brand">Everything Dark</a><img src="{{ asset('img/whitemoon.png') }}" width="20px" height="auto" style="margin-top: 5px; margin-right: 20px; box-shadow: none;" alt="White Moon Image">
+
 
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -9,63 +11,49 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href={{ path('app_home')}}>Home</a>
+					<a class="nav-link" aria-current="page" href="{{ path('app_home') }}">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href={{ path('app_category_index')}}>Categories</a>
+					<a class="nav-link" href="{{ path('app_category_index')}}">Categories</a>
 				</li>
 
 				{% if not app.user %}
 
 					<li class="nav-item">
-						<a class="nav-link" href={{ path('app_register')}}>Sign In</a>
+						<a class="nav-link" href="{{ path('app_register')}}">Sign up</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href={{ path('app_login')}}>log In</a>
+						<a class="nav-link" href="{{ path('app_login')}}">log In</a>
 					</li>
 
 				{% else %}
 
 					<li class="nav-item">
-						<a class="nav-link" href={{ path('app_profile_show')}}>Profile</a>
+						<a class="nav-link" href="{{ path('app_profile_show')}}">Profile</a>
 
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href={{ path('app_logout')}}>log Out</a>
+						<a class="nav-link" href="{{ path('app_logout')}}">log Out</a>
 					</li>
+
 
 				{% endif %}
 
 				{% if is_granted('ROLE_ADMIN') %}
 
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-							Admin
-						</a>
-						<ul class="dropdown-menu">
-							<li>
-								<a class="dropdown-item" href={{ path('app_admin_category_index')}}>Categories</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href={{ path('app_admin_article_index')}}>Articles</a>
-							</li>
-							<li>
-								<a class="dropdown-item" href={{ path('app_admin_comment_index')}}>Comments</a>
-							</li>
-							<li><hr class="dropdown-divider"></li>
-							<li>
-								<a class="dropdown-item" href={{ path('app_admin_user_index')}}>Users</a>
-							</li>
-						</ul>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ path('admin')}}">Admin</a>
 					</li>
+
 				{% endif %}
+
 
 			</ul>
 
-			<form class="d-flex" role="search" action={{ path('app_search')}} method="GET">
-				<input class="form-control me-2" name="search" type="search" placeholder="..." aria-label="Search">
-                <button class="css-button-3d--grey" type="submit">Search</button>
+			<form class="d-flex" role="search" action="{{ path('app_search')}}" method="GET">
+				<input style="border-radius:20px; width:250px; height:40px; margin-top:13px; margin-right:5px; border: none;" name="search" type="search" placeholder="..." aria-label="Search">
+				<button class="css-button-3d--grey mt-3" type="submit">Search</button>
+
 			</form>
 		</div>
 	</div>
