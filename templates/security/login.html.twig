@@ -20,14 +20,14 @@
 
 			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-			<button class="css-button-3d--grey m-3" type="submit">log in</button>
+			<button class="css-button-3d--grey mt-3 mb-5" type="submit">log in</button>
 
 
 		</form>
 
-		<a href="{{ path('app_forgot_password_request') }}">
+		<a href="{{ path('app_forgot_password_request') }}" style="text-decoration:none">
 
-			<button class="css-button-3d--grey m-3" type="button">reset password</button>
+			<p style="color:white;">forgot password ?</p>
 		</a>
 		{% for flashType, messages in app.session.flashBag.all() %}
 			{% for message in messages %}
