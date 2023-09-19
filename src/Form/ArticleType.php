@@ -6,7 +6,6 @@ use App\Entity\Article;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 
 class ArticleType extends AbstractType
@@ -24,7 +23,7 @@ class ArticleType extends AbstractType
             ->add('content', null, [
                 'attr' => ['class' => 'd-flex flex-column mb-3', 'style' => 'width: 300px'],
             ])
-            ->add('image', UrlType::class, [ // Use the custom ImageUrlType
+            ->add('image', UrlType::class, [ 
                 'required' => true,
             ])
             ->add('user', null, [
